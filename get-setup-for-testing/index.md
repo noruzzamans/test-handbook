@@ -1,43 +1,57 @@
 # Get Set Up for Testing
 
-Welcome! To help test, your first step will be to set up a test environment.
+Welcome — this page helps new contributors get started quickly. If you're new to testing, follow the short onboarding checklist below, then choose the environment that best fits the kind of testing you want to do.
 
-## Set Up a Hosted WordPress Site
+## Quick onboarding checklist
 
-1. If you already have hosting setup for a site you own, consider asking your web host how to add an additional site in a subdomain or subfolder for testing purposes. Each host may have different options, and they should be able to help advise you.  
-2. If you have a small budget to work with, setting up additional hosting to use for testing is helpful because it also helps to diversify tests in varying different environments.  
-3. You can go to [https://wordpress.org/hosting/](https://wordpress.org/hosting/) to see a list of recommended hosts.
+- [ ] Join the Test Team Slack channel: `#core-test` on Make WordPress Slack.
+- [ ] Read the Guidelines for writing great Test Reports (`test-reports/`) and review examples.
+- [ ] Find tickets that need testing (see links on the handbook home page) and pick one to reproduce or patch-test.
+- [ ] Open a Test Report with clear steps, environment details, and expected vs actual results.
 
-## Install in a Local Environment
+If you aren’t sure where to start, ask in `#core-test` and someone will point you to good issues for beginners.
 
-Use this option if you would like to test pull requests or if you would like to check if something is working with the bleeding edge version.
+## Core / Trac testing (Quick start)
 
-1. Make sure you have [git](https://git-scm.com), [node](https://nodejs.org), and [npm](https://www.npmjs.com/get-npm) installed.  
-2. Install [docker](https://www.docker.com).  
-3. [Clone](https://help.github.com/articles/cloning-a-repository/) the [gutenberg](https://github.com/WordPress/gutenberg) repository locally.  
-4. Run `npm install`.  
-5. Run `npm run wp-env start`.  
-6. Open [http://localhost:8888](http://localhost:8888) in your browser (username: `admin`, password: `password`).
+This section explains how to test Core tickets and Trac-linked work. Core testing often involves reproducing issues, testing patches, or using the WordPress Playground when a GitHub PR is available.
 
-Need more detailed installation instructions? Please see [Contributing](https://github.com/WordPress/gutenberg/blob/master/CONTRIBUTING.md) in the documentation.
+1. Check the Trac ticket for an associated GitHub PR or a patch. If there is a GitHub PR, you can often use automated environments (see "WordPress Playground" below).
+2. If the Trac ticket only has a `.patch`, follow the patch testing guidance in `test-reports/patch-testing.md`.
+3. When you open a Test Report, include: WordPress version, browser, steps to reproduce, expected vs actual results, and screenshots or logs where helpful.
+4. Link to the Trac ticket or GitHub PR in your report and add any relevant labels or keywords.
 
-## Install Gutenberg as a Plugin
+Useful resources:
 
-Use this option to do general testing with the latest beta or release candidate versions of the Gutenberg editor:
+- Test Reports: `test-reports/`
+- Patch testing guide: `test-reports/patch-testing.md`
+- Test Core Tickets with Playground: `test-core-tickets-with-playground.md`
 
-1. Go to [https://github.com/WordPress/gutenberg/releases](https://github.com/WordPress/gutenberg/releases). Note: you may need to scroll through several pages of dependencies.  
-2. Download the latest `gutenberg.zip` file.  
-3. Go to WP Admin > Plugins > Add New > Upload Plugin.  
-4. Select the file from step 2.  
-5. Follow the prompts to install and activate the plugin.
+## Gutenberg (Editor) testing — environment options
 
-## Useful Commands
+The Gutenberg editor has its own recommended environments. If you want to test editor PRs or the latest editor features, choose one of the options below.
 
-*All of these commands are intended to be run from Terminal, in your Gutenberg directory.*
+### Hosted / quick testing
 
-- Running `npm install` occasionally is a useful habit, as well as any time you know that `package.json` has been changed.  
-- If you restart your computer, or upgrade Docker, start the Gutenberg containers again by running: `docker-compose up -d`
-- It’s a good practice to stop (with `Ctrl+C`) `npm run dev` and restart when you switch to a different branch.  
-- If everything is broken, and you have no idea what’s happened, run `bin/setup-local-env.sh` again to reset everything to a fresh install.
+- Use a hosted sandbox (e.g., InstaWP, TasteWP) for quick checks without local setup.
+- Use the WordPress Playground (see `test-core-tickets-with-playground.md`) for disposable, PR-driven test instances.
 
-Thank you for testing!
+### Local environment (recommended for deeper testing)
+
+Use this option to test pull requests or the bleeding-edge codebase locally.
+
+1. Make sure you have [git](https://git-scm.com), [node](https://nodejs.org), and [npm](https://www.npmjs.com/get-npm) installed.
+2. Install [Docker](https://www.docker.com) (recommended for `wp-env`).
+3. Clone the Gutenberg repository: `git clone https://github.com/WordPress/gutenberg.git`.
+4. From the Gutenberg directory run `npm install`.
+5. Start the WordPress dev environment with `npm run wp-env start`.
+6. Visit `http://localhost:8888` (username: `admin`, password: `password`).
+
+Need more detailed installation instructions? See the Gutenberg contributing docs (`https://github.com/WordPress/gutenberg/blob/master/CONTRIBUTING.md`).
+
+## Additional environment notes
+
+- Hosted sites are useful for quick checks across real hosting environments; local environments are better for debugging and iterative work.
+- Always include environment details (PHP version, MySQL/MariaDB, browser and version) in test reports.
+- If you need help setting up a specific environment, ask in `#core-test` on Slack — include what you want to test and your platform (Windows, macOS, Linux).
+
+Thank you for testing — your reports and feedback help improve WordPress for everyone.
