@@ -35,6 +35,7 @@ In addition to posts and discussions in the [Test Team blog](https://make.wordpr
 Ready to get started? Here are some links to get you on your way:
 
 - [Guidelines for writing great Test Reports](https://make.wordpress.org/test/handbook/test-reports/)
+- [Test Core Tickets with Playground](test-core-tickets-with-playground.md)
 - [Tickets needing issue reproduction](https://core.trac.wordpress.org/query?status=accepted&status=assigned&status=new&status=reopened&status=reviewing&keywords=~needs-testing+-has-patch&milestone=!&milestone=!Awaiting+Review&col=id&col=summary&col=status&col=milestone&col=changetime&col=keywords&col=type&col=priority&col=component&order=changetime)
 - [Tickets needing patch testing](https://core.trac.wordpress.org/query?status=accepted&status=assigned&status=new&status=reopened&status=reviewing&keywords=~needs-testing+has-patch&milestone=!Awaiting+Review&milestone=!&col=id&col=summary&col=status&col=milestone&col=changetime&col=keywords&col=type&col=priority&col=component&order=changetime)
 - [Editor issues needing testing](https://github.com/WordPress/gutenberg/issues?q=is%3Aissue+is%3Aopen+label%3A%22Needs+Testing%22)
