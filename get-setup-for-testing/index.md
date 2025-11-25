@@ -40,4 +40,4 @@ Use this option to do general testing with the latest beta or release candidate 
 - It’s a good practice to stop (with `Ctrl+C`) `npm run dev` and restart when you switch to a different branch.  
 - If everything is broken, and you have no idea what’s happened, run `bin/setup-local-env.sh` again to reset everything to a fresh install.
 
-Thank you for testing!
+Thank you for testing! 
